@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :produits
   end
   post 'auth_user' =>'authentication#authenticate_user'
+  root to: 'fournisseurs#index'
 end
