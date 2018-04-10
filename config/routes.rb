@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :fournisseurs do
     resources :produits
   end
+  post 'auth_user' =>'authentication#authenticate_user'
 end
