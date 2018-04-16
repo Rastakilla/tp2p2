@@ -1,7 +1,7 @@
 class ProduitsController < ApplicationController
   before_action :set_fournisseur
   before_action :set_fournisseur_produit, only: [:show, :update, :destroy]
-  before_action :authenticate_request!
+  before_action :authenticate_user
   # GET /fournisseurs/:fournisseur_id/produits
   def index
     json_response(@fournisseur.produits)

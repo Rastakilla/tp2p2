@@ -21,6 +21,15 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
+  config.warden do |manager|
+      # Registering your new Strategy
+      manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
+
+      # Adding the new JWT Strategy to the top of Warden's list,
+      # Scoped by what Devise would scope (typically :user)
+      manager.default_strategies(scope: :user).unshift :jwt
+  end
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

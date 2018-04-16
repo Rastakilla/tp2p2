@@ -1,6 +1,6 @@
 class FournisseursController < ApplicationController
   before_action :set_fournisseur, only: [:show, :update, :destroy]
-  before_action :authenticate_request!
+  before_action :authenticate_user
   # GET /fournisseurs
   def index
     @fournisseurs = Fournisseur.all
